@@ -7,6 +7,10 @@ var Schema = mongoose.Schema;
 var schema = new Schema({
     username: {type: String, unique: true, require: true},
     password: { type: String, required: true, bcrypt: true },
+    google: [{
+      id: {type: String},
+      token: {type: String}
+    }]
 });
 
 schema.pre('save', function(next) {

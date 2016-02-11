@@ -15,7 +15,10 @@
     "passport-oauth": "^1.0.0",
     "require-dir": "^0.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "bunyan": "^1.5.1",
+    "bunyan-format": "^0.2.1"
+  },
   "scripts": {
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"

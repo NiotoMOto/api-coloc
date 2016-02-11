@@ -7,7 +7,7 @@ function populate(next) {
     User.remove({})
   ]).then(() => {
       User.create({username : 'Antoine', password: 'antoine'});
-      User.create({username : 'Sébastien', password: 'seb'});
+      User.create({username : 'Sébastien', password: 'seb', google:{id: 'toto'}});
   });
 }
 
