@@ -2,7 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
-const cors = require('cors')
+const cors = require('cors');
+const config = require('./config.json');
 
 const app = express();
 
@@ -20,11 +21,14 @@ const logger = function(req, res, next) {
   log.info(req.method, req.url, req.params);
   next();
 }
+console.log(config.clients.toString());
 app.use(logger);
-app.use(cors());
+app.use(cors({
+	origin: config.clients.toString(),
+	credentials: true
+}));
 app.use(bodyParser.json());
 app.use(methodOverride());
-
 
 
 if(process.env.NODE_ENV !== 'production') {
